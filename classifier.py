@@ -1,26 +1,5 @@
 import json
 import os
-CLASSIFIER_PROMPT = """
-Your task is to classify the user's intent.
-
-Choose one of these labels:
-code
-data
-writing
-career
-unclear
-
-Respond ONLY with a JSON object in this format:
-
-{
-  "intent": "label",
-  "confidence": 0.0
-}
-
-Confidence must be a number between 0 and 1.
-
-Do not include explanations or extra text.
-"""
 from openai import OpenAI
 from dotenv import load_dotenv
 
@@ -53,3 +32,8 @@ def classify_intent(message: str):
             "intent": "unclear",
             "confidence": 0.0
         }
+from classifier import classify_intent
+
+msg = "How do I sort a list of objects in Python?"
+result = classify_intent(msg)
+print(result)
