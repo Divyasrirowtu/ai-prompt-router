@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  ai-router:
+    build: .
+    container_name: ai-router
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    volumes:
+      - .:/app
+    tty: true
