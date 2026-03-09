@@ -45,3 +45,6 @@ User message: {message}
     except Exception as e:
         # In case of any error, return unclear
         return {"intent": "unclear", "confidence": 0.0}
+CONFIDENCE_THRESHOLD = 0.7
+if result['confidence'] < CONFIDENCE_THRESHOLD:
+    result['intent'] = 'unclear'
