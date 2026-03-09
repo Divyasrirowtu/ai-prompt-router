@@ -1,7 +1,5 @@
-# Python virtual environment
+# Python
 venv/
-
-# Python cache
 __pycache__/
 *.pyc
 
@@ -9,4 +7,4 @@ __pycache__/
 .env
 
 # Logs
-*.log
+route_log.jsonl
