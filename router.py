@@ -32,3 +32,15 @@ def route_and_respond(message: str, intent_data: dict):
     )
 
     return response.choices[0].message.content.strip()
+from prompts import SYSTEM_PROMPTS, CLARIFY_PROMPT
+
+def route_and_respond(message: str, intent: dict):
+    label = intent.get("intent", "unclear")
+    
+    if label == "unclear":
+        return CLARIFY_PROMPT
+    
+    system_prompt = SYSTEM_PROMPTS.get(label)
+    
+    # Call your LLM with system_prompt + message
+    # return LLM-generated response
